@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#101218" />
+  <meta name="description" content="NOVA is a flexible AI workspace with six focused modes." />
+  <title>NOVA — your ideas, in motion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="NOVA home"><span class="brand-mark"><i></i><i></i><i></i></span><span>NOVA</span><span class="brand-beta">LAB</span></a>
+      <button class="new-chat" id="new-chat"><span>＋</span> New conversation <kbd>⌘ K</kbd></button>
+      <div class="side-label">YOUR SPACE</div>
+      <button class="nav-item active" data-nav="chat"><span class="nav-icon">◉</span> Chat <span class="nav-count">01</span></button>
+      <button class="nav-item" data-nav="projects"><span class="nav-icon">▧</span> Projects</button>
+      <button class="nav-item" data-nav="library"><span class="nav-icon">▤</span> Library</button>
+      <div class="side-label recent-label">RECENT</div>
+      <div class="recent-list" id="recent-list"><button class="recent-item selected"><span>◌</span> A little about NOVA</button><button class="recent-item"><span>◌</span> Untitled conversation</button></div>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note"><span class="note-orb">✳</span><div><strong>Built to grow with you</strong><p>More tools, one workspace.</p></div><button aria-label="Dismiss" id="dismiss-note">×</button></div>
+      <button class="profile"><span class="avatar">N</span><span class="profile-copy"><strong>Your workspace</strong><small>Free plan</small></span><span class="more">···</span></button>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar"><button class="icon-button mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button><div class="breadcrumb"><span>Workspace</span><b>/</b><strong>New conversation</strong></div><div class="top-actions"><span class="status"><i></i> All systems ready</span><button class="icon-button" id="workspace-toggle" title="Toggle workspace panel" aria-label="Toggle workspace panel">▤</button><button class="upgrade-button" id="roadmap-button">NOVA roadmap <span>↗</span></button></div></header>
+
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome">
+          <div class="welcome-kicker"><span class="pulse-dot"></span> YOUR CREATIVE WORKSPACE</div>
+          <h1>Big ideas start<br />with <span>a little spark.</span></h1>
+          <p class="welcome-copy">One place to think, make, explore, and get things done.<br class="desktop-break" /> Pick a mode or let NOVA find the right one.</p>
+          <div class="mode-grid" id="mode-grid" aria-label="Choose a NOVA mode"></div>
+          <div class="quick-prompts"><span>TRY ASKING</span><button data-prompt="Help me plan a small creative project">✳ <span>Plan a creative project</span> <b>↗</b></button><button data-prompt="Explain a tricky idea in simple terms">◇ <span>Make something easier to understand</span> <b>↗</b></button><button data-prompt="Help me write a first draft">↗ <span>Get a first draft started</span> <b>↗</b></button></div>
+        </div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+        <div class="composer-wrap">
+          <div class="attachment-preview" id="attachment-preview"></div>
+          <form class="composer" id="composer">
+            <textarea id="prompt-input" rows="1" placeholder="Ask NOVA anything..." aria-label="Message NOVA"></textarea>
+            <div class="composer-bottom"><div class="composer-tools"><button type="button" class="tool-button" id="attach-button" title="Attach a file">＋ <span>Attach</span></button><input type="file" id="file-input" accept="image/*,.pdf,.txt,.md,.doc,.docx" hidden /><button type="button" class="tool-button" id="web-toggle" title="Allow web search (available when connected)"><span class="globe">◎</span> <span>Web</span><i class="toggle"></i></button></div><div class="composer-right"><span class="mode-caption" id="mode-caption">AUTO · ADAPTIVE</span><button class="send-button" type="submit" aria-label="Send message">↑</button></div></div>
+          </form>
+          <div class="disclaimer">NOVA is a work in progress. Check important information.</div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="workspace-panel" id="workspace-panel"><div class="panel-head"><div><span class="panel-eyebrow">YOUR CANVAS</span><h2>Workspace</h2></div><button class="icon-button" id="close-panel" aria-label="Close workspace">×</button></div><div class="canvas-card"><div class="canvas-art"><span class="art-spark">✳</span><span class="art-line"></span><span class="art-label">NOVA / 01</span></div><div class="canvas-card-copy"><span class="tag">START HERE</span><h3>Your ideas have room to grow.</h3><p>This space will hold the things you make with NOVA: notes, drafts, images, and project files.</p></div></div><div class="panel-section"><div class="panel-section-head"><span>PROJECTS</span><button id="add-project" title="Add project">＋</button></div><button class="empty-project" id="empty-project"><span class="project-icon">▧</span><span><strong>Your first project</strong><small>Keep related work together</small></span><span class="empty-arrow">↗</span></button></div><div class="panel-tip"><span>✦</span><p><strong>Make it yours</strong><br />Choose a mode, ask a question, and start building your own way of working.</p></div><div class="panel-footer"><span class="tiny-orb">✳</span> A little more possible, every day.</div></aside>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modal" hidden><section class="roadmap-modal" role="dialog" aria-modal="true" aria-labelledby="roadmap-title"><button class="modal-close" id="modal-close" aria-label="Close">×</button><span class="panel-eyebrow">THE NOVA BLUEPRINT</span><h2 id="roadmap-title">Start with a spark.<br /><span>Build from there.</span></h2><p>This foundation is designed to grow in small, useful steps.</p><div class="roadmap-list"><div><b>01</b><span><strong>Make the workspace</strong><small>Six modes, chat, and the NOVA feel.</small></span><i>NOW</i></div><div><b>02</b><span><strong>Connect an open model</strong><small>Free local options, with a swappable provider.</small></span><i>UP NEXT</i></div><div><b>03</b><span><strong>Give NOVA fresh eyes</strong><small>Web search, image input, and file reading.</small></span><i>PLANNED</i></div><div><b>04</b><span><strong>Make, remember, act</strong><small>Coding, media, memory, and multi-step work.</small></span><i>PLANNED</i></div></div><div class="modal-foot"><span>✳</span> One thoughtful step at a time.</div></section></div>
+  <style>
+    .auto-row{grid-column:1/-1;margin:4px auto 0}.recent-empty{padding:4px 10px;color:#777b87;font-size:10px;line-height:1.6}.recent-item .recent-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.mode-card:focus-visible,.auto-chip:focus-visible,.new-chat:focus-visible,.icon-button:focus-visible,.send-button:focus-visible{outline:2px solid #d9fa76;outline-offset:2px}.messages:empty{display:none}
+  </style>
+  <script src="app.js"></script>
+</body>
+</html>
