@@ -1,0 +1,2 @@
+# nova-ai
+THE BEST AI THE WORLD WILL KNOW
